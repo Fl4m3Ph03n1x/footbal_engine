@@ -17,7 +17,7 @@ defmodule QuickSearch do
 
 
   def division(divisions, deps \\ @default_deps) when is_list(divisions) do
-
+    :ets.lookup(arg1, arg2)
   end
 
   ###############

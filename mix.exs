@@ -27,13 +27,16 @@ defmodule FootbalEngine.MixProject do
 
   defp deps do
     [
+      { :csv, "~> 2.3"  },
+
       # tracing
       { :observer_cli, "~> 1.5" },
 
       # tests and dev
-      { :dialyxir,    "~> 1.0.0-rc.6",  only: [:dev],         runtime: false  },
-      { :credo,       "~> 1.0.0",       only: [:dev, :test],  runtime: false  },
-      { :excoveralls, "~> 0.10",        only: [:test],        runtime: false  }
+      { :dialyxir,        "~> 1.0.0-rc.6",  only: [:dev],         runtime: false  },
+      { :credo,           "~> 1.0.0",       only: [:dev, :test],  runtime: false  },
+      { :excoveralls,     "~> 0.10",        only: [:test],        runtime: false  },
+      { :mix_test_watch,  "~> 0.8",         only: [:dev],         runtime: false  }
     ]
   end
 end

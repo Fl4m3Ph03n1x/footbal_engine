@@ -162,13 +162,14 @@ defmodule QuickSearchTest do
       {:ok, :partial_indexation_successful, fails} =
         QuickSearch.new("./test/data/sample_3.csv", deps)
 
-      expected_int_error = {:error, :unable_to_parse_int, "QGA2017"}
-      expected_date_format_error = {:error, :date_with_bad_format, "BAD_DATE"}
-      expected_bad_date_error = {:error, :invalid_date, "99/99/2016"}
+      expected_fails =[
+        {:error, :unable_to_parse_int, "QGA2017"},
+        {:error, :date_with_bad_format, "BAD_DATE"},
+        {:error, :invalid_date, "99/99/2016"},
+        {:error, :unable_to_parse_int, "AA"}
+      ]
 
-      assert Enum.member?(fails, expected_int_error)
-      assert Enum.member?(fails, expected_date_format_error)
-      assert Enum.member?(fails, expected_bad_date_error)
+      assert fails == expected_fails
     end
 
     test "retuns error if it cannot read file" do

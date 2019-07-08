@@ -7,6 +7,12 @@ defmodule FootbalEngine.QuickSearch do
   placed into memory and replicated for faster query searches. Memory usage will
   be inversionally proportional to query search times, meaning the more memory
   this solution uses, the faster the response times.
+
+  It also uses :persistent_term tables, from OTP 21 becasue we are expected to
+  perform a ton of reads, but only to write to the table once (at startup).
+
+  More info on :persistent_term:
+  http://erlang.org/doc/man/persistent_term.html
   """
 
   @default_deps [
@@ -20,6 +26,38 @@ defmodule FootbalEngine.QuickSearch do
   # Public API  #
   ###############
 
+  @doc """
+  Reads the given CSV file and indexes it into memory.
+
+  Example:
+  ```
+  alias FootbalEngine.QuickSearch
+
+  path = "./Data.csv"
+  {:ok, :indexation_successful} = QuickSearch.new(path)
+  ```
+
+  Arguments:
+
+  - `path :: String.t` - the path of the file to read.
+
+  Returns:
+
+  - `{:ok, :indexation_successful}` if 100% of the given file was indexed
+  correctly and no errors were found.
+
+  - `{:ok, :partial_indexation_successful, [any]}` if only some rows of the CSV
+  file were indexed correctly and the CSV file either has malformed rows, or
+  rows with data in an incorrect format. The third element of the tuple is a
+  list of the various errors found.
+
+  - `{:error, :no_valid_data_to_save}` if the CSV file was empty, or had no
+  valid data to index. This can happen if the all rows in the file were
+  malformed or generated some kind of error.
+
+  - `{:error, any}` if the CSV file could not be indexed at all due to an error.
+  The second element of the tuple is the reason of the error.
+  """
   @spec new(String.t, keyword) ::
     {:ok, :indexation_successful}
     | {:ok, :partial_indexation_successful, [any]}
@@ -66,6 +104,41 @@ defmodule FootbalEngine.QuickSearch do
     err -> {:error, err}
   end
 
+  @doc """
+  Queries the indexed tables for information.
+
+  Example:
+  ```
+  alias FootbalEngine.QuickSearch
+
+  path = "./Data.csv"
+  {:ok, :indexation_successful} = QuickSearch.new(path)
+  {:ok, results} = QuickSearch.search(
+    [{"Div", ["SP1", "SP2"]}, {"Season", ["201617"]}]
+  )
+  ```
+
+  Arguments:
+
+  - `query :: [{String.t, [String.t]}]` - The query to perform. `query` is a
+  list of tuples with the format `{header :: String.t, [values :: String.t]}`.
+  For example, if I want to search for all the games in Div SP1 or E0, the
+  following tuple would cover them `{"Div", ["SP1", "E0"]}`. If and I all games
+  in Div SP1 and with HomeTeam Barcelona, the following list would cover this
+  `[{"Div", ["SP1"]}, {"HomeTeam", ["Barcelona"]}]`. You can also send the values
+  array empty to get all the games: `[{"Div", []]` would get all games with that
+  have a Div.
+
+  Returns:
+
+  - `{:ok, [Map.t]}` if the search was successfull. The second element of the
+  tuple is a list with all the entries matching the given result in a Map
+  format.
+
+  - `{:error, :invalid_headers, [String.t]}` if some of the headers given were
+  invalid, meaning they are missing from the CSV. The third element of the tuple
+  is the list of the invalid headers.
+  """
   @spec search([{String.t, [String.t]}], keyword) ::
     {:ok, [map]}
     | {:error, :invalid_headers, [String.t]}

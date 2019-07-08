@@ -1,6 +1,12 @@
 defmodule FootbalEngine.QuickSearch do
   @moduledoc """
-  Engine.
+  Database engine of the application. It can read the CSV file and index its
+  contents for faster query searches. It can also query the index data.
+
+  This module simulates an indexed (basic) memory db, where all the data is
+  placed into memory and replicated for faster query searches. Memory usage will
+  be inversionally proportional to query search times, meaning the more memory
+  this solution uses, the faster the response times.
   """
 
   @default_deps [

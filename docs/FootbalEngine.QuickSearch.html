@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.20.2">
+    <meta name="project" content="footbal_engine v0.1.0">
+    <title>FootbalEngine.QuickSearch — footbal_engine v0.1.0</title>
+    <link rel="stylesheet" href="dist/html-d9f58a6320b5bfa6dd77.css" />
+    <script src="dist/sidebar_items-48ff93cd22.js"></script>
+      <script src="docs_config.js"></script>
+    <script async src="dist/html-d9f58a6320b5bfa6dd77.js"></script>
+  </head>
+  <body data-type="modules">
+    <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button">
+      <span class="icon-search" aria-hidden="true"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button">
+      <span class="icon-cross" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" id="search-list" class="search-input" placeholder="Search..." aria-label="Search" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="api-reference.html" class="sidebar-projectName">
+footbal_engine      </a>
+      <h2 class="sidebar-projectVersion">
+        v0.1.0
+      </h2>
+    </div>
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list" href="#full-list">Pages</a></li>
+
+      <li><a id="modules-list" href="#full-list">Modules</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+      <h1>
+        <small class="app-vsn">footbal_engine v0.1.0</small>
+FootbalEngine.QuickSearch      </h1>
+
+
+        <section id="moduledoc">
+<p>Database engine of the application. It can read the CSV file and index its
+contents for faster query searches. It can also query the index data.</p>
+<p>This module simulates an indexed (basic) memory db, where all the data is
+placed into memory and replicated for faster query searches. Memory usage will
+be inversionally proportional to query search times, meaning the more memory
+this solution uses, the faster the response times.</p>
+<p>It also uses :persistent_term tables, from OTP 21 becasue we are expected to
+perform a ton of reads, but only to write to the table once (at startup).</p>
+<p>More info on :persistent_term:
+http://erlang.org/doc/man/persistent_term.html</p>
+        </section>
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#new/2">new(path, injected_deps \\ [])</a>
+  </div>
+    <div class="summary-synopsis"><p>Reads the given CSV file and indexes it into memory.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#search/2">search(query, injected_deps \\ [])</a>
+  </div>
+    <div class="summary-synopsis"><p>Queries the indexed tables for information.</p></div>
+</div>
+  </div>
+        </section>
+
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="new/2">
+    <span id="new/1"></span>
+  <div class="detail-header">
+    <a href="#new/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">new(path, injected_deps \\ [])</span>
+      <div class="specs">
+          <pre>new(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">keyword</a>()) ::
+  {:ok, :indexation_successful}
+  | {:ok, :partial_indexation_successful, [<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()]}
+  | {:error, :no_valid_data_to_save | <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">any</a>()}</pre>
+      </div>
+  </div>
+  <section class="docstring">
+<p>Reads the given CSV file and indexes it into memory.</p>
+<p>Example:</p>
+<pre><code class="nohighlight makeup elixir"><span class="kn">alias</span><span class="w"> </span><span class="nc">FootbalEngine.QuickSearch</span><span class="w">
+
+</span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;./Data.csv&quot;</span><span class="w">
+</span><span class="p" data-group-id="9163978843-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="ss">:indexation_successful</span><span class="p" data-group-id="9163978843-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">QuickSearch</span><span class="o">.</span><span class="n">new</span><span class="p" data-group-id="9163978843-2">(</span><span class="n">path</span><span class="p" data-group-id="9163978843-2">)</span></code></pre>
+<p>Arguments:</p>
+<ul>
+<li><code class="inline">path :: String.t</code> - the path of the file to read.
+</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li><p><code class="inline">{:ok, :indexation_successful}</code> if 100% of the given file was indexed
+correctly and no errors were found.</p>
+</li>
+<li><p><code class="inline">{:ok, :partial_indexation_successful, [any]}</code> if only some rows of the CSV
+file were indexed correctly and the CSV file either has malformed rows, or
+rows with data in an incorrect format. The third element of the tuple is a
+list of the various errors found.</p>
+</li>
+<li><p><code class="inline">{:error, :no_valid_data_to_save}</code> if the CSV file was empty, or had no
+valid data to index. This can happen if the all rows in the file were
+malformed or generated some kind of error.</p>
+</li>
+<li><p><code class="inline">{:error, any}</code> if the CSV file could not be indexed at all due to an error.
+The second element of the tuple is the reason of the error.</p>
+</li>
+</ul>
+  </section>
+</section>
+<section class="detail" id="search/2">
+    <span id="search/1"></span>
+  <div class="detail-header">
+    <a href="#search/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">search(query, injected_deps \\ [])</span>
+      <div class="specs">
+          <pre>search([{<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), [<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()]}], <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">keyword</a>()) ::
+  {:ok, [<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()]} | {:error, :invalid_headers, [<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()]}</pre>
+      </div>
+  </div>
+  <section class="docstring">
+<p>Queries the indexed tables for information.</p>
+<p>Example:</p>
+<pre><code class="nohighlight makeup elixir"><span class="kn">alias</span><span class="w"> </span><span class="nc">FootbalEngine.QuickSearch</span><span class="w">
+
+</span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;./Data.csv&quot;</span><span class="w">
+</span><span class="p" data-group-id="9223876066-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="ss">:indexation_successful</span><span class="p" data-group-id="9223876066-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">QuickSearch</span><span class="o">.</span><span class="n">new</span><span class="p" data-group-id="9223876066-2">(</span><span class="n">path</span><span class="p" data-group-id="9223876066-2">)</span><span class="w">
+</span><span class="p" data-group-id="9223876066-3">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p" data-group-id="9223876066-3">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">QuickSearch</span><span class="o">.</span><span class="n">search</span><span class="p" data-group-id="9223876066-4">(</span><span class="w">
+  </span><span class="p" data-group-id="9223876066-5">[</span><span class="p" data-group-id="9223876066-6">{</span><span class="s">&quot;Div&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9223876066-7">[</span><span class="s">&quot;SP1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SP2&quot;</span><span class="p" data-group-id="9223876066-7">]</span><span class="p" data-group-id="9223876066-6">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9223876066-8">{</span><span class="s">&quot;Season&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9223876066-9">[</span><span class="s">&quot;201617&quot;</span><span class="p" data-group-id="9223876066-9">]</span><span class="p" data-group-id="9223876066-8">}</span><span class="p" data-group-id="9223876066-5">]</span><span class="w">
+</span><span class="p" data-group-id="9223876066-4">)</span></code></pre>
+<p>Arguments:</p>
+<ul>
+<li><code class="inline">query :: [{String.t, [String.t]}]</code> - The query to perform. <code class="inline">query</code> is a
+list of tuples with the format <code class="inline">{header :: String.t, [values :: String.t]}</code>.
+For example, if I want to search for all the games in Div SP1 or E0, the
+following tuple would cover them <code class="inline">{&quot;Div&quot;, [&quot;SP1&quot;, &quot;E0&quot;]}</code>. If and I all games
+in Div SP1 and with HomeTeam Barcelona, the following list would cover this
+<code class="inline">[{&quot;Div&quot;, [&quot;SP1&quot;]}, {&quot;HomeTeam&quot;, [&quot;Barcelona&quot;]}]</code>. You can also send the values
+array empty to get all the games: <code class="inline">[{&quot;Div&quot;, []]</code> would get all games with that
+have a Div.
+</li>
+</ul>
+<p>Returns:</p>
+<ul>
+<li><p><code class="inline">{:ok, [Map.t]}</code> if the search was successfull. The second element of the
+tuple is a list with all the entries matching the given result in a Map
+format.</p>
+</li>
+<li><p><code class="inline">{:error, :invalid_headers, [String.t]}</code> if some of the headers given were
+invalid, meaning they are missing from the CSV. The third element of the tuple
+is the list of the invalid headers.</p>
+</li>
+</ul>
+  </section>
+</section>
+          </div>
+        </section>
+      <footer class="footer">
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.20.2),
+          </span>
+          <span class="line">
+            designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+  </body>
+</html>

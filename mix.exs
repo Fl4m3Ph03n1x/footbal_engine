@@ -20,7 +20,7 @@ defmodule FootbalEngine.MixProject do
 
   def application do
     [
-      extra_applications: [:logger, :runtime_tools],
+      extra_applications: [:runtime_tools],
       mod: {FootbalEngine.Application, []}
     ]
   end

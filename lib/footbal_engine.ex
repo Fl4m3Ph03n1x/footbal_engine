@@ -1,7 +1,7 @@
-defmodule FootbalEngine.QuickSearch do
+defmodule FootbalEngine do
   @moduledoc """
-  Database engine of the application. It can read the CSV file and index its
-  contents for faster query searches. It can also query the index data.
+  Database engine. It can read the CSV file and index its contents for faster
+  query searches. It can also query the indexed data.
 
   This module simulates an indexed (basic) memory db, where all the data is
   placed into memory and replicated for faster query searches. Memory usage will
@@ -31,10 +31,8 @@ defmodule FootbalEngine.QuickSearch do
 
   Example:
   ```
-  alias FootbalEngine.QuickSearch
-
   path = "./Data.csv"
-  {:ok, :indexation_successful} = QuickSearch.new(path)
+  {:ok, :indexation_successful} = FootbalEngine.new(path)
   ```
 
   Arguments:
@@ -109,11 +107,9 @@ defmodule FootbalEngine.QuickSearch do
 
   Example:
   ```
-  alias FootbalEngine.QuickSearch
-
   path = "./Data.csv"
-  {:ok, :indexation_successful} = QuickSearch.new(path)
-  {:ok, results} = QuickSearch.search(
+  {:ok, :indexation_successful} = FootbalEngine.new(path)
+  {:ok, results} = FootbalEngine.search(
     [{"Div", ["SP1", "SP2"]}, {"Season", ["201617"]}]
   )
   ```

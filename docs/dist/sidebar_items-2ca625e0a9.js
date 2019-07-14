@@ -1,0 +1,1 @@
+sidebarNodes={"extras":[{"id":"api-reference","title":"API Reference","group":"","headers":[{"id":"Modules","anchor":"modules"}]}],"exceptions":[],"modules":[{"id":"FootbalEngine","title":"FootbalEngine","group":"","nodeGroups":[{"key":"functions","name":"Functions","nodes":[{"id":"new/2","anchor":"new/2"},{"id":"search/2","anchor":"search/2"}]}]}],"tasks":[]}

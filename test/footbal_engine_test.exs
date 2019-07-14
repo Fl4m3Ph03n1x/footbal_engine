@@ -1,11 +1,9 @@
-defmodule QuickSearchTest do
+defmodule FootbalEngineTest do
   use ExUnit.Case
 
-  @moduletag :quick_search
+  @moduletag :footbal_engin
 
-  doctest FootbalEngine.QuickSearch
-
-  alias FootbalEngine.QuickSearch
+  doctest FootbalEngine
 
   describe "new" do
     @describetag :new
@@ -20,7 +18,7 @@ defmodule QuickSearchTest do
       ]
 
       {:ok, :indexation_successful} =
-        QuickSearch.new("./test/data/sample_1.csv", deps)
+        FootbalEngine.new("./test/data/sample_1.csv", deps)
 
       expected_div = MapSet.new([
         %{
@@ -149,7 +147,7 @@ defmodule QuickSearchTest do
         storage_put: fn(_key, _val) -> :ok end
       ]
       {:ok, :partial_indexation_successful, fails} =
-        QuickSearch.new("./test/data/sample_2.csv", deps)
+        FootbalEngine.new("./test/data/sample_2.csv", deps)
 
       expected_error = {:error, "Row has length 10 - expected length 12 on line 3"}
       assert Enum.member?(fails, expected_error)
@@ -160,7 +158,7 @@ defmodule QuickSearchTest do
         storage_put: fn(_key, _val) -> :ok end
       ]
       {:ok, :partial_indexation_successful, fails} =
-        QuickSearch.new("./test/data/sample_3.csv", deps)
+        FootbalEngine.new("./test/data/sample_3.csv", deps)
 
       expected_fails =[
         {:error, :unable_to_parse_int, "QGA2017"},
@@ -174,7 +172,7 @@ defmodule QuickSearchTest do
 
     test "retuns error if it cannot read file" do
       {:error, reason} =
-        QuickSearch.new("./test/data/non_existent_sample.csv")
+        FootbalEngine.new("./test/data/non_existent_sample.csv")
 
       expected_reason = %File.Error{
         action: "stream",
@@ -187,7 +185,7 @@ defmodule QuickSearchTest do
 
     test "returns error if file has no data" do
       {:error, :no_valid_data_to_save, errors} =
-        QuickSearch.new("./test/data/sample_4.csv")
+        FootbalEngine.new("./test/data/sample_4.csv")
 
       expected_errors = []
 
@@ -196,7 +194,7 @@ defmodule QuickSearchTest do
 
     test "returns error if file is empty" do
       {:error, :no_valid_data_to_save, errors} =
-        QuickSearch.new("./test/data/sample_5.csv")
+        FootbalEngine.new("./test/data/sample_5.csv")
 
       expected_errors = []
 
@@ -278,7 +276,7 @@ defmodule QuickSearchTest do
         storage_get_all: fn -> test_data end
       ]
 
-      {:ok, actual}    = QuickSearch.search([{"Div", []}], deps)
+      {:ok, actual}    = FootbalEngine.search([{"Div", []}], deps)
       expected  = [entry_1, entry_2, entry_3]
 
       assert actual == expected
@@ -307,7 +305,7 @@ defmodule QuickSearchTest do
         storage_get_all: fn -> test_data end
       ]
 
-      {:error, :invalid_headers, headers} = QuickSearch.search([{"Banana", []}], deps)
+      {:error, :invalid_headers, headers} = FootbalEngine.search([{"Banana", []}], deps)
       expected_headers  = ["Banana"]
 
       assert headers == expected_headers
@@ -337,7 +335,7 @@ defmodule QuickSearchTest do
         storage_get_all: fn -> test_data end
       ]
 
-      {:ok, actual}    = QuickSearch.search([{"Div", ["SP2"]}], deps)
+      {:ok, actual}    = FootbalEngine.search([{"Div", ["SP2"]}], deps)
       expected  = []
 
       assert actual == expected
@@ -367,7 +365,7 @@ defmodule QuickSearchTest do
         storage_get_all: fn -> test_data end
       ]
 
-      {:ok, actual}    = QuickSearch.search([{"Div", ["SP1"]}], deps)
+      {:ok, actual}    = FootbalEngine.search([{"Div", ["SP1"]}], deps)
       expected  = [entry]
 
       assert actual == expected
@@ -418,7 +416,7 @@ defmodule QuickSearchTest do
         storage_get_all: fn -> test_data end
       ]
 
-      {:ok, actual}    = QuickSearch.search([{"Div", ["SP1", "E0"]}], deps)
+      {:ok, actual}    = FootbalEngine.search([{"Div", ["SP1", "E0"]}], deps)
       expected  = [entry_1, entry_2]
 
       assert actual == expected
@@ -453,7 +451,7 @@ defmodule QuickSearchTest do
         storage_get_all: fn -> test_data end
       ]
 
-      {:ok, actual}    = QuickSearch.search([{"Div", ["SP1", "SP99999"]}], deps)
+      {:ok, actual}    = FootbalEngine.search([{"Div", ["SP1", "SP99999"]}], deps)
       expected  = [entry_1]
 
       assert actual == expected
@@ -518,7 +516,7 @@ defmodule QuickSearchTest do
         storage_get_all: fn -> test_data end
       ]
 
-      {:ok, actual}    = QuickSearch.search(
+      {:ok, actual}    = FootbalEngine.search(
         [
           {"Div",     ["SP1"]},
           {"Season",  ["201617"]}

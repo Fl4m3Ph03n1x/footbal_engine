@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.20.2">
     <meta name="project" content="footbal_engine v0.1.0">
-    <title>FootbalEngine.QuickSearch — footbal_engine v0.1.0</title>
+    <title>FootbalEngine — footbal_engine v0.1.0</title>
     <link rel="stylesheet" href="dist/html-d9f58a6320b5bfa6dd77.css" />
-    <script src="dist/sidebar_items-48ff93cd22.js"></script>
+    <script src="dist/sidebar_items-2ca625e0a9.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-d9f58a6320b5bfa6dd77.js"></script>
   </head>
@@ -65,12 +65,12 @@ footbal_engine      </a>
 
       <h1>
         <small class="app-vsn">footbal_engine v0.1.0</small>
-FootbalEngine.QuickSearch      </h1>
+FootbalEngine      </h1>
 
 
         <section id="moduledoc">
-<p>Database engine of the application. It can read the CSV file and index its
-contents for faster query searches. It can also query the index data.</p>
+<p>Database engine. It can read the CSV file and index its contents for faster
+query searches. It can also query the indexed data.</p>
 <p>This module simulates an indexed (basic) memory db, where all the data is
 placed into memory and replicated for faster query searches. Memory usage will
 be inversionally proportional to query search times, meaning the more memory
@@ -134,10 +134,8 @@ Functions          </h1>
   <section class="docstring">
 <p>Reads the given CSV file and indexes it into memory.</p>
 <p>Example:</p>
-<pre><code class="nohighlight makeup elixir"><span class="kn">alias</span><span class="w"> </span><span class="nc">FootbalEngine.QuickSearch</span><span class="w">
-
-</span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;./Data.csv&quot;</span><span class="w">
-</span><span class="p" data-group-id="9163978843-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="ss">:indexation_successful</span><span class="p" data-group-id="9163978843-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">QuickSearch</span><span class="o">.</span><span class="n">new</span><span class="p" data-group-id="9163978843-2">(</span><span class="n">path</span><span class="p" data-group-id="9163978843-2">)</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;./Data.csv&quot;</span><span class="w">
+</span><span class="p" data-group-id="4626029277-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="ss">:indexation_successful</span><span class="p" data-group-id="4626029277-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">FootbalEngine</span><span class="o">.</span><span class="n">new</span><span class="p" data-group-id="4626029277-2">(</span><span class="n">path</span><span class="p" data-group-id="4626029277-2">)</span></code></pre>
 <p>Arguments:</p>
 <ul>
 <li><code class="inline">path :: String.t</code> - the path of the file to read.
@@ -179,13 +177,11 @@ The second element of the tuple is the reason of the error.</p>
   <section class="docstring">
 <p>Queries the indexed tables for information.</p>
 <p>Example:</p>
-<pre><code class="nohighlight makeup elixir"><span class="kn">alias</span><span class="w"> </span><span class="nc">FootbalEngine.QuickSearch</span><span class="w">
-
-</span><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;./Data.csv&quot;</span><span class="w">
-</span><span class="p" data-group-id="9223876066-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="ss">:indexation_successful</span><span class="p" data-group-id="9223876066-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">QuickSearch</span><span class="o">.</span><span class="n">new</span><span class="p" data-group-id="9223876066-2">(</span><span class="n">path</span><span class="p" data-group-id="9223876066-2">)</span><span class="w">
-</span><span class="p" data-group-id="9223876066-3">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p" data-group-id="9223876066-3">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">QuickSearch</span><span class="o">.</span><span class="n">search</span><span class="p" data-group-id="9223876066-4">(</span><span class="w">
-  </span><span class="p" data-group-id="9223876066-5">[</span><span class="p" data-group-id="9223876066-6">{</span><span class="s">&quot;Div&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9223876066-7">[</span><span class="s">&quot;SP1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SP2&quot;</span><span class="p" data-group-id="9223876066-7">]</span><span class="p" data-group-id="9223876066-6">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9223876066-8">{</span><span class="s">&quot;Season&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9223876066-9">[</span><span class="s">&quot;201617&quot;</span><span class="p" data-group-id="9223876066-9">]</span><span class="p" data-group-id="9223876066-8">}</span><span class="p" data-group-id="9223876066-5">]</span><span class="w">
-</span><span class="p" data-group-id="9223876066-4">)</span></code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;./Data.csv&quot;</span><span class="w">
+</span><span class="p" data-group-id="9468529835-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="ss">:indexation_successful</span><span class="p" data-group-id="9468529835-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">FootbalEngine</span><span class="o">.</span><span class="n">new</span><span class="p" data-group-id="9468529835-2">(</span><span class="n">path</span><span class="p" data-group-id="9468529835-2">)</span><span class="w">
+</span><span class="p" data-group-id="9468529835-3">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p" data-group-id="9468529835-3">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">FootbalEngine</span><span class="o">.</span><span class="n">search</span><span class="p" data-group-id="9468529835-4">(</span><span class="w">
+  </span><span class="p" data-group-id="9468529835-5">[</span><span class="p" data-group-id="9468529835-6">{</span><span class="s">&quot;Div&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9468529835-7">[</span><span class="s">&quot;SP1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SP2&quot;</span><span class="p" data-group-id="9468529835-7">]</span><span class="p" data-group-id="9468529835-6">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9468529835-8">{</span><span class="s">&quot;Season&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="9468529835-9">[</span><span class="s">&quot;201617&quot;</span><span class="p" data-group-id="9468529835-9">]</span><span class="p" data-group-id="9468529835-8">}</span><span class="p" data-group-id="9468529835-5">]</span><span class="w">
+</span><span class="p" data-group-id="9468529835-4">)</span></code></pre>
 <p>Arguments:</p>
 <ul>
 <li><code class="inline">query :: [{String.t, [String.t]}]</code> - The query to perform. <code class="inline">query</code> is a

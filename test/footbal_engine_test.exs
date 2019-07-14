@@ -160,7 +160,7 @@ defmodule FootbalEngineTest do
       {:ok, :partial_indexation_successful, fails} =
         FootbalEngine.new("./test/data/sample_3.csv", deps)
 
-      expected_fails =[
+      expected_fails = [
         {:error, :unable_to_parse_int, "QGA2017"},
         {:error, :date_with_bad_format, "BAD_DATE"},
         {:error, :invalid_date, "99/99/2016"},

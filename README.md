@@ -15,4 +15,4 @@ each row is indexed for faster search queries.
 You can launch the engine by running `iex -S mix`.
 
 The public API this Engine offers can be accessed via the `FootbalEngine` module.
-You can check the [official documentation](https://fl4m3ph03n1x.github.io/footbal_engine/FootbalEngine.QuickSearch.html) for more information.
+You can check the [official documentation](https://fl4m3ph03n1x.github.io/footbal_engine/api-reference.html) for more information.

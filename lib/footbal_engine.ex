@@ -83,8 +83,6 @@ defmodule FootbalEngine do
   """
   defdelegate search(query), to: Reader
 
-  @doc """
-
-  """
+  @doc false
   defdelegate child_spec(args), to: FootbalEngine.Populator.Server
 end

@@ -5,8 +5,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.20.2">
-    <meta name="project" content="footbal_engine v0.1.0">
-    <title>FootbalEngine — footbal_engine v0.1.0</title>
+    <meta name="project" content="footbal_engine v1.0.0">
+    <title>FootbalEngine — footbal_engine v1.0.0</title>
     <link rel="stylesheet" href="dist/html-d9f58a6320b5bfa6dd77.css" />
     <script src="dist/sidebar_items-abb9e402d9.js"></script>
       <script src="docs_config.js"></script>
@@ -43,7 +43,7 @@
       <a href="api-reference.html" class="sidebar-projectName">
 footbal_engine      </a>
       <h2 class="sidebar-projectVersion">
-        v0.1.0
+        v1.0.0
       </h2>
     </div>
   </div>
@@ -64,7 +64,7 @@ footbal_engine      </a>
     <div id="content" class="content-inner">
 
       <h1>
-        <small class="app-vsn">footbal_engine v0.1.0</small>
+        <small class="app-vsn">footbal_engine v1.0.0</small>
 FootbalEngine      </h1>
 
 
@@ -132,7 +132,7 @@ it keeps trying to read the file and populate it until the operation is
 completely successful.</p>
 <p>Example:</p>
 <pre><code class="nohighlight makeup elixir"><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;./Data.csv&quot;</span><span class="w">
-</span><span class="p" data-group-id="8844786330-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="c">_pid</span><span class="p" data-group-id="8844786330-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">FootbalEngine</span><span class="o">.</span><span class="n">new</span><span class="p" data-group-id="8844786330-2">(</span><span class="n">path</span><span class="p" data-group-id="8844786330-2">)</span></code></pre>
+</span><span class="p" data-group-id="1105731628-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="c">_pid</span><span class="p" data-group-id="1105731628-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">FootbalEngine</span><span class="o">.</span><span class="n">new</span><span class="p" data-group-id="1105731628-2">(</span><span class="n">path</span><span class="p" data-group-id="1105731628-2">)</span></code></pre>
 <p>Arguments:</p>
 <ul>
 <li><code class="inline">path :: String.t</code> - the path of the file to read.
@@ -157,10 +157,10 @@ completely successful.</p>
 <p>Queries the indexed tables for information.</p>
 <p>Example:</p>
 <pre><code class="nohighlight makeup elixir"><span class="n">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;./Data.csv&quot;</span><span class="w">
-</span><span class="p" data-group-id="5823747028-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="ss">:indexation_successful</span><span class="p" data-group-id="5823747028-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">FootbalEngine</span><span class="o">.</span><span class="n">new</span><span class="p" data-group-id="5823747028-2">(</span><span class="n">path</span><span class="p" data-group-id="5823747028-2">)</span><span class="w">
-</span><span class="p" data-group-id="5823747028-3">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p" data-group-id="5823747028-3">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">FootbalEngine</span><span class="o">.</span><span class="n">search</span><span class="p" data-group-id="5823747028-4">(</span><span class="w">
-  </span><span class="p" data-group-id="5823747028-5">[</span><span class="p" data-group-id="5823747028-6">{</span><span class="s">&quot;Div&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5823747028-7">[</span><span class="s">&quot;SP1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SP2&quot;</span><span class="p" data-group-id="5823747028-7">]</span><span class="p" data-group-id="5823747028-6">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5823747028-8">{</span><span class="s">&quot;Season&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5823747028-9">[</span><span class="s">&quot;201617&quot;</span><span class="p" data-group-id="5823747028-9">]</span><span class="p" data-group-id="5823747028-8">}</span><span class="p" data-group-id="5823747028-5">]</span><span class="w">
-</span><span class="p" data-group-id="5823747028-4">)</span></code></pre>
+</span><span class="p" data-group-id="5424529725-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="ss">:indexation_successful</span><span class="p" data-group-id="5424529725-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">FootbalEngine</span><span class="o">.</span><span class="n">new</span><span class="p" data-group-id="5424529725-2">(</span><span class="n">path</span><span class="p" data-group-id="5424529725-2">)</span><span class="w">
+</span><span class="p" data-group-id="5424529725-3">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">results</span><span class="p" data-group-id="5424529725-3">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">FootbalEngine</span><span class="o">.</span><span class="n">search</span><span class="p" data-group-id="5424529725-4">(</span><span class="w">
+  </span><span class="p" data-group-id="5424529725-5">[</span><span class="p" data-group-id="5424529725-6">{</span><span class="s">&quot;Div&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5424529725-7">[</span><span class="s">&quot;SP1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SP2&quot;</span><span class="p" data-group-id="5424529725-7">]</span><span class="p" data-group-id="5424529725-6">}</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5424529725-8">{</span><span class="s">&quot;Season&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="5424529725-9">[</span><span class="s">&quot;201617&quot;</span><span class="p" data-group-id="5424529725-9">]</span><span class="p" data-group-id="5424529725-8">}</span><span class="p" data-group-id="5424529725-5">]</span><span class="w">
+</span><span class="p" data-group-id="5424529725-4">)</span></code></pre>
 <p>Arguments:</p>
 <ul>
 <li><code class="inline">query :: [{String.t, [String.t]}]</code> - The query to perform. <code class="inline">query</code> is a

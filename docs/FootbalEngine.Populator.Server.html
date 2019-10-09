@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.20.2">
     <meta name="project" content="footbal_engine v1.0.0">
-    <title>Search — footbal_engine v1.0.0</title>
+    <title>FootbalEngine.Populator.Server — footbal_engine v1.0.0</title>
     <link rel="stylesheet" href="dist/html-d9f58a6320b5bfa6dd77.css" />
     <script src="dist/sidebar_items-abb9e402d9.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-d9f58a6320b5bfa6dd77.js"></script>
   </head>
-  <body data-type="search">
+  <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
 <div class="main">
 
@@ -62,10 +62,81 @@ footbal_engine      </a>
 <section class="content">
   <div class="content-outer">
     <div id="content" class="content-inner">
-<div id="search">
-  <h1>Search</h1>
-  <div class="loading"><div></div><div></div><div></div><div></div></div>
+
+      <h1>
+        <small class="app-vsn">footbal_engine v1.0.0</small>
+FootbalEngine.Populator.Server      </h1>
+
+
+        <section id="moduledoc">
+<p>Server for the Cache. Tries to populate it with data and if it gets anything
+other than a complete success for the indexation, it will keep trying to
+repopulate the memory tables.</p>
+        </section>
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#child_spec/1">child_spec(init_arg)</a>
+  </div>
+    <div class="summary-synopsis"><p>Returns a specification to start this module under a supervisor.</p></div>
 </div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#start_link/1">start_link(path)</a>
+  </div>
+</div>
+  </div>
+        </section>
+
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="child_spec/1">
+  <div class="detail-header">
+    <a href="#child_spec/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">child_spec(init_arg)</span>
+  </div>
+  <section class="docstring">
+<p>Returns a specification to start this module under a supervisor.</p>
+<p>See <a href="https://hexdocs.pm/elixir/Supervisor.html"><code class="inline">Supervisor</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="start_link/1">
+  <div class="detail-header">
+    <a href="#start_link/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">start_link(path)</span>
+      <div class="specs">
+          <pre>start_link(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/GenServer.html#t:on_start/0">GenServer.on_start</a>()</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</section>
+          </div>
+        </section>
       <footer class="footer">
         <p>
           <span class="line">
@@ -92,4 +163,3 @@ footbal_engine      </a>
 </div>
   </body>
 </html>
-<script src="dist/search_items-493b2b51f6.js"></script>

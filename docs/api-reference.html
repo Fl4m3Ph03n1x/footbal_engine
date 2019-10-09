@@ -5,10 +5,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.20.2">
-    <meta name="project" content="footbal_engine v0.1.0">
-    <title>API Reference — footbal_engine v0.1.0</title>
+    <meta name="project" content="footbal_engine v1.0.0">
+    <title>API Reference — footbal_engine v1.0.0</title>
     <link rel="stylesheet" href="dist/html-d9f58a6320b5bfa6dd77.css" />
-    <script src="dist/sidebar_items-2ca625e0a9.js"></script>
+    <script src="dist/sidebar_items-abb9e402d9.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-d9f58a6320b5bfa6dd77.js"></script>
   </head>
@@ -43,7 +43,7 @@
       <a href="api-reference.html" class="sidebar-projectName">
 footbal_engine      </a>
       <h2 class="sidebar-projectVersion">
-        v0.1.0
+        v1.0.0
       </h2>
     </div>
   </div>
@@ -64,7 +64,7 @@ footbal_engine      </a>
     <div id="content" class="content-inner">
 
 <h1>
-  <small class="app-vsn">footbal_engine v0.1.0</small>
+  <small class="app-vsn">footbal_engine v1.0.0</small>
   API Reference
 </h1>
 
@@ -81,6 +81,47 @@ footbal_engine      </a>
   </div>
     <div class="summary-synopsis"><p>Database engine. It can read the CSV file and index its contents for faster
 query searches. It can also query the indexed data.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="FootbalEngine.Populator.html">FootbalEngine.Populator</a>
+  </div>
+    <div class="summary-synopsis"><p>Interface for the populator that fills up the memory table (populates it) with
+data.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="FootbalEngine.Populator.Cache.html">FootbalEngine.Populator.Cache</a>
+  </div>
+    <div class="summary-synopsis"><p>Reads the CSV file, validates and parses its data and then populates the
+memory tables (the DB) with it&#39;s information.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="FootbalEngine.Populator.Parser.html">FootbalEngine.Populator.Parser</a>
+  </div>
+    <div class="summary-synopsis"><p>Contains several parsing utility functions to parse the data from the CSV to
+the Elixir native types.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="FootbalEngine.Populator.Server.html">FootbalEngine.Populator.Server</a>
+  </div>
+    <div class="summary-synopsis"><p>Server for the Cache. Tries to populate it with data and if it gets anything
+other than a complete success for the indexation, it will keep trying to
+repopulate the memory tables.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="FootbalEngine.Populator.Storage.html">FootbalEngine.Populator.Storage</a>
+  </div>
+    <div class="summary-synopsis"><p>Stores the given data in memory, indexing it as necessary along the way.</p></div>
+</div>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="FootbalEngine.Reader.html">FootbalEngine.Reader</a>
+  </div>
+    <div class="summary-synopsis"><p>Client that queries the memory DB for information.</p></div>
 </div>
     </div>
   </section>

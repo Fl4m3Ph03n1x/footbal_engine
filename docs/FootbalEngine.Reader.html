@@ -6,13 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.20.2">
     <meta name="project" content="footbal_engine v1.0.0">
-    <title>Search — footbal_engine v1.0.0</title>
+    <title>FootbalEngine.Reader — footbal_engine v1.0.0</title>
     <link rel="stylesheet" href="dist/html-d9f58a6320b5bfa6dd77.css" />
     <script src="dist/sidebar_items-abb9e402d9.js"></script>
       <script src="docs_config.js"></script>
     <script async src="dist/html-d9f58a6320b5bfa6dd77.js"></script>
   </head>
-  <body data-type="search">
+  <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
 <div class="main">
 
@@ -62,10 +62,67 @@ footbal_engine      </a>
 <section class="content">
   <div class="content-outer">
     <div id="content" class="content-inner">
-<div id="search">
-  <h1>Search</h1>
-  <div class="loading"><div></div><div></div><div></div><div></div></div>
+
+      <h1>
+        <small class="app-vsn">footbal_engine v1.0.0</small>
+FootbalEngine.Reader      </h1>
+
+
+        <section id="moduledoc">
+<p>Client that queries the memory DB for information.</p>
+<p>To use this API the
+engine must have populated the memory table before, otherwise all operations
+will fail.</p>
+        </section>
+
+        <section id="summary" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#summary">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Summary
+          </h1>
+  <div class="summary-functions summary">
+    <h2>
+      <a href="#functions">Functions</a>
+    </h2>
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#search/2">search(query, injected_deps \\ [])</a>
+  </div>
 </div>
+  </div>
+        </section>
+
+        <section id="functions" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#functions">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="search/2">
+    <span id="search/1"></span>
+  <div class="detail-header">
+    <a href="#search/2" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">search(query, injected_deps \\ [])</span>
+      <div class="specs">
+          <pre>search([{<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), [<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()]}], <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">keyword</a>()) ::
+  {:ok, [<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()]}
+  | {:error, :invalid_headers, [<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()]}
+  | {:error, :indexation_not_ready}</pre>
+      </div>
+  </div>
+  <section class="docstring">
+  </section>
+</section>
+          </div>
+        </section>
       <footer class="footer">
         <p>
           <span class="line">
@@ -92,4 +149,3 @@ footbal_engine      </a>
 </div>
   </body>
 </html>
-<script src="dist/search_items-493b2b51f6.js"></script>
